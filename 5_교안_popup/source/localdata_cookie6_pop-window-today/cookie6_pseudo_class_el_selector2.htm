@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>Pseudo Class vs Element</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 14px;
+			}
+			
+			#footer {
+				border: 0px solid;
+				background-color: #ddd;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+			}
+			
+			footer {
+				border: 1px solid #ccc;
+				width: 1170px;
+				margin: 0 auto;
+				margin-top: 450px;
+				padding: 15px;
+				background-color: #fff;
+			}
+			
+			ul::after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			ul {
+				border: 0px solid red;
+				/* overflow: auto; 		--> 비권장 --> 권장은 별도의 가상요소를 만들어서 clear: both 해주는 것을 권장 */
+				padding: 2px 0;
+				display: table;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			li {
+				list-style: none;
+				float: left;
+				padding: 0 80px;
+				border: 0px solid;
+			}
+			
+			li::before {
+				content: "|";
+				color: red;
+				font-weight: bold;
+				float: right;
+				margin-right: -83px;
+			}
+			
+			li:last-child::before {
+				content: "";
+			}
+		</style>
+	</head>
+	<body>
+
+		<!--
+			inline vs block vs inline-block
+			inline : 
+				대표 태그  				: span
+				width, height			: 적용 불가.
+				margin, padding		: 일부 불가.
+				line-height			: 제대로 사용이 X.
+			block : 
+				대표 태그 				: div
+				width, height			: 적용 가능.
+				기본적으로 100% 너비를 차지(한 줄). 다음 태그는 줄 바꿈이 적용.
+			inline-block : 
+				inline 속성이면서 block 속성의 특징을 가지고 있음.
+				width, height, margin, padding 적용이 가능.
+				줄 바꿈을 하지 않음. 
+		-->
+		<!--div style="background: red; display: inline-block; width: 50%">대한민국</div><div style="background: green; display: inline-block; width: 50%">Korea</div-->
+
+		<!-- 예제3 -->
+		<div id="footer">
+			<footer>
+				<ul>
+					<li>회사소개</li>
+					<li>이용약관</li>
+					<li>자주 묻는 질문</li>
+					<li>제휴문의</li>
+					<li>사이트맵</li>
+				</ul>
+			</footer>
+		</div>
+		<!-- //예제3 -->
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

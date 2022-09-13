@@ -1,0 +1,129 @@
+button {
+	width: 200px;
+	background-color: #00FFFF;
+	border: none;
+	color: #000;
+	cursor: pointer;
+	padding: 10px 25px;
+}
+
+button:hover {
+	background-color: #000;
+	color: #FFF;
+	transition: all .35s;
+}
+
+.popup {
+	display: none;
+}
+
+.popup::before {
+	content: "";
+	display: block;
+	border: 0px solid blue;
+	position: fixed;  /* 위치를 고정 */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.85;
+	/* background: rgba( 0, 0, 0, 0.5 ); */
+}
+
+.popup .banner {
+	border: 0px solid red;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	background-color: #ff0080;
+	/* overflow: hidden; */
+	transform: translate( -50%, -50% );
+	padding: 40px;
+	border-radius: 30px;
+	/* 
+		설명:
+		translate() 함수는 기본적으로 X 축과 Y 축을 따라 지정된 거리만큼 요소를 이동.
+	*/
+}
+
+.popup .banner .title {
+	text-align: center;
+	color: #fff;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 14px;
+	margin-bottom: 30px;
+}
+
+.popup .banner .body {
+	border-top: 1px dashed #d9d9d9;
+	border-bottom: 1px dashed #d9d9d9;
+	padding: 20px 10px;
+	margin-bottom: 20px;
+}
+
+.popup .banner p {
+	line-height: 20px;
+	font-size: 14px;
+	color: #ddd;
+}
+
+.popup .banner .btnClose {
+	color: #fff;
+	position: absolute;
+	top: -75px;
+	right: 15px;
+	/* border-bottom: 1px solid #000; */
+	text-decoration: none;
+	padding: 2px 0;
+	font-size: 13px;
+	text-transform: uppercase;
+	/*
+		설명:
+		relative는 static 속성을 기준으로 무브하고, absolute는 position: static 속성이 아닌 것을 기준으로 기준으로 무브.
+		부모 중에 relative, absolute, fixed 속성이 없으면 가장 상위 태그(body)가 기준.
+	*/
+}
+
+.popup .banner .btnConcealWindowToday {
+	color: #fff;
+	font-size: 14px;
+	font-weight: 900;
+	text-decoration: none;
+	position: absolute;
+	top: -33px;
+	left: 25px;
+}
+
+.popup .banner .btnConcealWindowToday::before {
+	content: "❌ ";
+}
+
+.popup .banner .btnClose::before {
+	content: "✖ ";
+	font-size: 350%;
+}
+
+.body::first-letter {
+	font-size: 200%;
+	background: #fff;
+	color: #000;
+	padding: 0 10px;
+	margin-right: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

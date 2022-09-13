@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>Pseudo Class vs Element</title>
+		<style>
+			/*
+				1.
+				가상 클래스, 가상 요소, 가상 선택자
+				Pseudo-class, Pseudo-element, Pseudo-selector
+				이것들을 사용하면 HTML 문서내에 쓸데없는 태그 작성이나 수정 없이 Css 작업단에서 디자인적인 요소를 추가, 
+				또는 꾸밀 수가 있어서 매우 많이 사용하는 Css 기법중 하나.
+				즉, HTML 문서에는 존재하지 않지만 필요에 의해 임의로 가상의 선택자를 지정하여 꾸미는 것.
+				
+				2.
+				쓸데없는 태그를 사용하지 않는다는 것이 뭐가 좋지???
+				가독성이 좋다.
+				가급적 HMTL 문서에 쓸데없는 태그나 디자인적 꾸밈이 없다면 화면 리더기 등이 읽어 나갈 떄
+				이러한 부분을 스캐닝 하지 않으므로 좋고, 전체적인 문서의 가독성도 좋게 만든다.
+				
+				3. 
+				사용방법		--> : 또는 ::	--> 호환성을 위해서 둘 다 사용이 가능하나 구버전 브라우저에서는 안될 수 있음.
+				
+				4. 
+				가상 클래스 		--> 실제 클래스를 만들어 사용하는 것이 아닌 선택자 뒤에 가상 클래스를 붙여 Css 디자인을 꾸밈.
+								--> 선택자:가상클래스 { property: value; }
+								:link { ... }
+								:hover { ... }
+								:active { ... }
+								:visited { ... }
+								:focus { ... }
+								:nth-child(n)
+								:first-child
+								:last-child
+								:checked	( 라디오버튼, 체크박스가 체크시 적용할 스타일 지정 )
+								
+				5.
+				가상 요소		--> 가상 클래스는 실제로 문서(HTML)에 작성되어 있는 요소에 클래스 추가 없이 Css 디자인을 꾸밈.
+								--> 클래스가 없음에도 마치 클래스를 만들어 지정해놓은 것처럼 선택자로 선택하고 꾸밈.
+								--> 반면, 가상 요소는 실제로 문서(HTML)에 없는 요소를 아예 있는 것처럼 만들어서 사용하게끔 함.
+								--> 어떠한 요소(Element)도 없는데 마치 있는 것처럼 가상으로 지정해서 Css를 수정함.
+								--> 가상 클래스와 구분을 위해서 :: 2개 사용.
+								--> 선택자::가상요소 { property: value; }
+								::before { content: ""; }
+								::after { content: url('이미지경로'); }
+								::marker { ... }
+								::selection { ... }	( 마우스 드래그 --> 일명 형광펜 기능 )
+								::first-line { ... }
+								::first-letter { ... }
+								
+				6.
+				::before, ::after
+				특정 요소의 앞이나 뒤에 텍스트, 이미지, 박스 등의 내용을 만들어 넣을 수 있음.
+				content 지정을 꼭 해줘야지만 됨. 안하면 동작을 하지 않음.
+				:, :: 둘 다 가능함. 호환성을 위해 Css2(:) 구버전도 지원.
+			*/
+		</style>
+	</head>
+	<body>
+
+		<!-- 예제1 -->
+		<!--style>
+			a:link						{ color: red; text-decoration: none }
+			a:hover					{ color: blue; text-decoration: underline }
+			a:active					{ color: yellow }
+			a:visited					{ color: green }
+			a:focus						{ background-color: #000; color: yellow }
+			input:focus 				{ background-color: red; color: #FFF }
+			input:last-child:focus		{ background-color: green }
+		</style>
+
+		<a href="#">가상 클래스</a>
+		<input type="text">
+		<input type="text">
+		<input type="text"-->
+		<!-- //예제1 -->
+
+		<!-- 예제2 : 가상 요소 -->
+		<style>
+			.test								{ border: 1px solid }
+			.test ul li:first-child				{ font-weight: bold; color: blue }
+			.test ul li:first-child::first-letter	{ font-weight: bold; color: red; font-size: 200% }
+			
+			.test2::first-line					{ background-color: green; color: #FFF; font-weight: bold }
+			/* .test2::first-letter				{ background-color: red; color: #FFF; font-weight: bold; font-size: 200%; padding: 10px } */
+			.test2::before						{ content: url('https://cdn.pixabay.com/photo/2014/06/18/19/24/facebook-371640_960_720.png'); }
+			.test2::after						{ content: url('https://cdn.pixabay.com/photo/2014/06/18/19/24/facebook-371640_960_720.png'); }
+			/*
+				설명:
+				before, after --> content 에서는 이미지 사이즈 조절이 불가능.
+				만약, 이미지 사이즈 조절을 해주고자 한다면 background-image 를 사용해서 조절한다.
+			*/
+			
+			.btnClose::before					{ content: "❌ "; }
+		</style>
+		
+		<p class="btnClose">창 닫기</p>
+		<br><br>
+		
+		<div class="test">
+			<ul>
+				<li>영화 보니깐 기분 좋다.</li>
+				<li>보는내내 몰입감과 긴장감이 있어서 좋았다.</li>
+				<li>한국 영화가 요즘 흥행하고 있다.</li>
+			</ul>
+		</div>
+		<p class="test2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		<!-- //예제2 : 가상 요소 -->
+		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

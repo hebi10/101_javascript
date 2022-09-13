@@ -1,0 +1,46 @@
+button {
+	width: 300px;
+	background-color: #00FFFF;
+	border: none;
+	color: #000;
+	cursor: pointer;
+	padding: 10px 25px;
+	float: right;
+	margin-bottom: 10px;
+}
+
+button:hover {
+	background-color: black;
+	color: #fff;
+	transition: all .35s;
+	cursor: pointer; /* wait, crosshair, not-allowed, zoom-in, grab */
+}
+
+.btn {
+	background-color: #000;
+	color: #fff;
+	width: 150px;
+	margin-bottom: 0px;
+	
+	/* 가운데 정렬 */
+	/* margin: 0 auto;  <-- 굳이 이럴 필요 없음. 지금은 이렇게 해도 안됨. */
+	float: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
