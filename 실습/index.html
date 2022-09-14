@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- cookie -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"
+      integrity="sha512-wT7uPE7tOP6w4o28u1DN775jYjHQApdBnib5Pho4RB0Pgd9y7eSkAV1BTqQydupYDB9GBhTcQQzyNMPMV3cAew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      body {
+        background-color: #3a3c3c;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <button>cookie 생성</button>
+    <button onclick="getCookie()">cookie 확인</button>
+    <button onclick="setCookie()">cookie 삭제</button>
+    <script>
+      function getCookie() {
+        const allCookies = document.cookie;
+        if (allCookies != "") {
+          "저장된 쿠키의 값은 : " +
+            allCookies +
+            "\n( 다시 방문해주셔서 환영합니다. )";
+        } else {
+          alert("저장된 쿠키가 없습니다. \n( 첫 방문을 환영합니다. )");
+        }
+      }
+      function setCookie() {
+        let expiration = new Date();
+        expiration.setDate(expiration.getDate() + 7);
+        console.log(expiration);
+      }
+    </script>
+  </body>
+</html>
